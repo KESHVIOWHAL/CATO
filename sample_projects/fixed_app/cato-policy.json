@@ -1,0 +1,9 @@
+{
+  "critical_secret": "BLOCK",
+  "high_vulnerability": "BLOCK",
+  "medium_vulnerability": "REVIEW",
+  "failed_tests": "REVIEW",
+  "architecture_violation": "BLOCK",
+  "max_dep_findings_per_package": 3,
+  "dep_severity_threshold": "HIGH"
+}

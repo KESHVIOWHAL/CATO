@@ -1,0 +1,57 @@
+.cost-wrap {}
+
+.cost-message {
+  background: var(--accent-bg) !important;
+  border-color: var(--amber-border) !important;
+  text-align: center; padding: 20px 24px;
+}
+.cost-message-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+.cost-message-sub   { font-size: 13px; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .cost-grid { grid-template-columns: 1fr; } }
+
+.cost-note { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
+
+.cost-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px; }
+.cost-table td { padding: 7px 4px; border-bottom: 1px solid var(--border-soft); color: var(--text-dim); }
+.cost-table tr:last-child td { border-bottom: none; }
+.cost-val { text-align: right; font-weight: 600; color: var(--text); white-space: nowrap; padding-left: 12px; }
+
+.cost-total {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px;
+}
+.cost-total-val { color: var(--accent); font-size: 16px; }
+
+/* Plans */
+.plans-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .plans-grid { grid-template-columns: 1fr; } }
+
+.plan-card { position: relative; border-width: 1.5px !important; transition: box-shadow 0.15s; }
+.plan-card:hover { box-shadow: var(--shadow-md); }
+.plan-highlight { box-shadow: var(--shadow-md); }
+
+.plan-badge {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff; font-size: 10px; font-weight: 700;
+  padding: 2px 12px; border-radius: 20px; letter-spacing: 0.5px;
+}
+
+.plan-name  { font-size: 14px; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+.plan-price { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+.plan-period { font-size: 14px; font-weight: 500; color: var(--text-muted); }
+
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.plan-features li { font-size: 13px; color: var(--text-dim); display: flex; gap: 8px; }
+
+/* Revenue */
+.revenue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+@media (max-width: 600px) { .revenue-grid { grid-template-columns: 1fr; } }
+
+.revenue-card {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}

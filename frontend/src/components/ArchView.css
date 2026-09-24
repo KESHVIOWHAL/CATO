@@ -1,0 +1,45 @@
+.arch-full {}
+
+.arch-layout {
+  display: grid; grid-template-columns: 280px 1fr; gap: 20px; align-items: start;
+}
+@media (max-width: 860px) { .arch-layout { grid-template-columns: 1fr; } }
+
+.arch-left {}
+.arch-panel-title {
+  font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 10px;
+}
+.arch-left-step { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; }
+.arch-highlight { border-color: var(--amber)  !important; background: var(--amber-bg)  !important; }
+.arch-action    { border-color: var(--accent) !important; background: var(--accent-bg) !important; }
+.arch-cato      { border-color: var(--accent) !important; background: var(--accent-bg) !important; border-width: 2px !important; }
+
+.arch-down-arrow { text-align: center; color: var(--border); font-size: 18px; padding: 3px 0; margin-left: 20px; }
+
+.arch-right {}
+
+.checks-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+@media (max-width: 700px) { .checks-grid { grid-template-columns: 1fr 1fr; } }
+
+.check-box { padding: 12px 14px !important; }
+
+.arch-prov { background: var(--surface2) !important; }
+.prov-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.prov-tag {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 4px; padding: 3px 8px; font-size: 11px; color: var(--text-dim);
+}
+
+.outcome-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.outcome-box {
+  border: 1.5px solid; border-radius: 10px; padding: 14px;
+  text-align: center; background: var(--surface);
+}
+
+.cert-flow-tag {
+  background: var(--accent-bg); border: 1px solid var(--amber-border);
+  border-radius: 4px; padding: 4px 10px; font-size: 11px; color: var(--accent);
+}
+
+.arch-linux { opacity: 0.45; }

@@ -1,0 +1,6 @@
+{
+  "critical_secret": "BLOCK",
+  "high_vulnerability": "BLOCK",
+  "medium_vulnerability": "REVIEW",
+  "failed_tests": "REVIEW"
+}

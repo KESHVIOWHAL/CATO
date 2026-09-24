@@ -1,0 +1,30 @@
+.prov-wrap {}
+
+.prov-chain {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 0;
+  overflow-x: auto; padding: 4px 0;
+}
+
+.prov-node-wrap { display: flex; align-items: center; }
+
+.prov-node {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 12px 14px; border-radius: var(--radius);
+  border: 1.5px solid var(--border); min-width: 90px; text-align: center;
+  box-shadow: var(--shadow);
+}
+.pnode-pass    { background: var(--green-bg); border-color: var(--green-border); }
+.pnode-fail    { background: var(--red-bg);   border-color: var(--red-border); }
+.pnode-pending { background: var(--surface2); border-color: var(--border); opacity: 0.55; }
+
+.pnode-icon  { font-size: 20px; }
+.pnode-label { font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.pnode-status { font-size: 11px; font-weight: 800; letter-spacing: 1px; }
+.st-pass    { color: var(--green); }
+.st-fail    { color: var(--red); }
+.st-pending { color: var(--text-muted); }
+
+.pnode-count { font-size: 10px; color: var(--amber); font-weight: 700; }
+
+.prov-arrow { font-size: 16px; color: var(--border); padding: 0 6px; flex-shrink: 0; }

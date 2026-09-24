@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── Core palette: white + pastel yellow ── */
+  --bg:        #fdfcf7;
+  --surface:   #ffffff;
+  --surface2:  #faf8f0;
+  --surface3:  #f5f2e4;
+  --border:    #e8e2cc;
+  --border-soft: #f0ebd8;
+
+  /* ── Accent: warm yellow / gold ── */
+  --accent:    #d4a017;
+  --accent2:   #e8b84b;
+  --accent-bg: #fef9e7;
+  --accent-soft: #fdf3c0;
+
+  /* ── Text ── */
+  --text:       #1a1612;
+  --text-muted: #8a7f6a;
+  --text-dim:   #4a4235;
+  --text-light: #b8ab96;
+
+  /* ── Status colours (muted for light theme) ── */
+  --red:      #c0392b;
+  --red-bg:   #fdf0ee;
+  --red-border: #f0c8c3;
+
+  --amber:     #c47d0e;
+  --amber-bg:  #fef9e7;
+  --amber-border: #f0d080;
+
+  --green:     #1a7a4a;
+  --green-bg:  #edfaf3;
+  --green-border: #a8dfc0;
+
+  --blue:      #2563a8;
+  --blue-bg:   #eef4fd;
+  --blue-border: #bdd3f5;
+
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent2); }

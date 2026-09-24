@@ -1,0 +1,163 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 28px;
+  height: 60px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.topbar-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-logo   {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--amber-border);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+  flex-shrink: 0;
+}
+.brand-name   { font-size: 18px; font-weight: 800; letter-spacing: 1px; color: var(--text); }
+.brand-sub    { font-size: 11px; color: var(--text-muted); border-left: 1px solid var(--border); padding-left: 14px; }
+@media (max-width: 768px) { .brand-sub { display: none; } }
+
+.topbar-nav { display: flex; gap: 2px; flex: 1; }
+.topbar-nav button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  padding: 7px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.topbar-nav button:hover  { background: var(--surface3); color: var(--text); }
+.topbar-nav button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.topbar-tag { display: flex; gap: 8px; flex-shrink: 0; }
+.tag-sih  {
+  font-size: 11px; padding: 3px 10px; border-radius: 20px;
+  font-weight: 700; background: var(--accent-soft); color: var(--accent);
+  border: 1px solid var(--amber-border);
+}
+.tag-team {
+  font-size: 11px; padding: 3px 10px; border-radius: 20px;
+  font-weight: 600; background: var(--surface3); color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ── Main ── */
+.main-content {
+  flex: 1;
+  padding: 28px 28px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 700; border: none;
+  transition: all 0.15s;
+  letter-spacing: 0.3px;
+}
+.btn:hover    { filter: brightness(0.94); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn:active   { transform: translateY(0); filter: brightness(0.90); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-primary  { background: var(--accent); color: #fff; }
+.btn-outline  {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Badges ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
+}
+.badge-pass { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.badge-fail { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+.badge-skip { background: var(--surface3);  color: var(--text-muted); border: 1px solid var(--border); }
+.badge-demo { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); font-size: 10px; }
+.badge-live { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); font-size: 10px; }
+
+/* ── Decision banners ── */
+.decision-block   { background: var(--red-bg)   !important; border: 1.5px solid var(--red-border)   !important; }
+.decision-review  { background: var(--amber-bg) !important; border: 1.5px solid var(--amber-border) !important; }
+.decision-approve { background: var(--green-bg) !important; border: 1.5px solid var(--green-border) !important; }
+
+/* ── Section title ── */
+.section-title {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px;
+}
+
+/* ── Divider ── */
+.divider { height: 1px; background: var(--border-soft); margin: 20px 0; }
+
+/* ── Hash box ── */
+.hash-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  word-break: break-all;
+  letter-spacing: 0.5px;
+}
+
+/* ── Spinner ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(212,160,23,0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* ── Sev badges ── */
+.sev-badge {
+  font-size: 10px; font-weight: 700;
+  padding: 1px 7px; border-radius: 20px;
+  letter-spacing: 0.4px; flex-shrink: 0;
+}
+.sev-critical { background: #fde8e8; color: #c0392b; border: 1px solid #f5c0ba; }
+.sev-high     { background: #fdebd0; color: #c47d0e; border: 1px solid #f5d090; }
+.sev-medium   { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.sev-low      { background: var(--blue-bg);  color: var(--blue);  border: 1px solid var(--blue-border); }
+.sev-info     { background: var(--surface3); color: var(--text-muted); border: 1px solid var(--border); }

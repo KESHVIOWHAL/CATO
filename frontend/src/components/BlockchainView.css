@@ -1,0 +1,41 @@
+.chain-list { display: flex; flex-direction: column; gap: 12px; }
+
+.chain-block { border-left: 4px solid var(--accent2); }
+.genesis-block { border-left-color: var(--border); opacity: 0.7; }
+
+.block-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+
+.block-index { font-size: 18px; font-weight: 800; color: var(--accent); font-family: monospace; min-width: 36px; }
+
+.block-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-muted);
+  background: var(--surface2); padding: 2px 8px; border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.block-cert-id { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+
+.block-hashes { display: flex; flex-direction: column; gap: 5px; }
+
+.block-hash-row { display: flex; gap: 10px; font-size: 11px; font-family: monospace; align-items: baseline; }
+
+.hash-label {
+  color: var(--text-muted); min-width: 70px; flex-shrink: 0;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.hash-val { color: var(--text); word-break: break-all; }
+.hash-val.dim { color: var(--text-light); }
+
+.hash-input {
+  flex: 1; background: var(--surface2); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 8px 12px; color: var(--text);
+  font-family: monospace; font-size: 12px; outline: none;
+  transition: border-color 0.15s;
+}
+.hash-input:focus { border-color: var(--accent); background: var(--surface); }
+
+.verify-result { border-radius: 8px; padding: 10px 14px; font-size: 13px; }
+.verify-ok   { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green); }
+.verify-fail { background: var(--red-bg);   border: 1px solid var(--red-border);   color: var(--red); }

@@ -1,0 +1,52 @@
+.aip-wrap {}
+
+.aip-flow {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  padding: 16px 20px; background: var(--surface2) !important;
+}
+
+.aip-flow-step {
+  font-size: 12px; font-weight: 600; color: var(--text-dim);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 12px; white-space: nowrap;
+}
+.aip-flow-action {
+  background: var(--accent-bg); border-color: var(--amber-border);
+  color: var(--accent); font-weight: 700;
+}
+
+.routing-boxes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+@media (max-width: 600px) { .routing-boxes { grid-template-columns: 1fr; } }
+
+.routing-box {
+  border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 14px 16px; text-align: center; background: var(--surface2);
+  transition: border-color 0.15s;
+}
+.routing-active { border-color: var(--accent) !important; background: var(--accent-bg) !important; box-shadow: 0 0 0 3px rgba(212,160,23,0.15); }
+
+.routing-box-label { font-weight: 700; font-size: 13px; margin-bottom: 4px; color: var(--text); }
+.routing-box-sub   { font-size: 11px; color: var(--text-muted); }
+.routing-selected  { font-size: 11px; color: var(--accent); font-weight: 700; margin-top: 6px; }
+
+.aip-input {
+  width: 100%; background: var(--surface2); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 10px 14px; color: var(--text);
+  font-family: 'Courier New', monospace; font-size: 13px; resize: vertical;
+  outline: none; line-height: 1.6; transition: border-color 0.15s;
+}
+.aip-input:focus { border-color: var(--accent); background: var(--surface); }
+
+.aip-result-banner {
+  display: flex; align-items: flex-start; gap: 14px;
+  border-radius: 10px; padding: 14px 16px;
+}
+.aip-blocked { background: var(--red-bg);   border: 1px solid var(--red-border); }
+.aip-allowed { background: var(--green-bg); border: 1px solid var(--green-border); }
+
+.aip-findings { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+
+.aip-finding {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-left: 3px solid var(--red); border-radius: 8px; padding: 10px 14px;
+}

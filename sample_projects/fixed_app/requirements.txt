@@ -1,0 +1,3 @@
+# FIXED VERSION: Updated to patched dependencies with no known CVEs
+httpx==0.27.2
+pyyaml==6.0.2
