@@ -1,0 +1,15 @@
+{
+  "name": "node-clean-demo",
+  "version": "1.0.0",
+  "description": "Clean Node.js app — should produce no critical CATO findings",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test tests/app.test.js"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "jsonwebtoken": "9.0.2",
+    "helmet": "8.0.0"
+  }
+}

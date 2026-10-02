@@ -1,0 +1,19 @@
+{
+  "name": "ts-api-demo",
+  "version": "1.0.0",
+  "description": "TypeScript API with intentional vulnerabilities for CATO testing",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "serialize-javascript": "3.1.0",
+    "node-fetch": "2.6.1",
+    "qs": "6.5.2"
+  },
+  "devDependencies": {
+    "typescript": "4.9.5",
+    "@types/express": "4.17.17"
+  }
+}
