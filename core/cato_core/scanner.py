@@ -196,7 +196,24 @@ def run_secret_detection(project_path: Path) -> CheckResult:
     findings: List[Finding] = []
     source_files = _collect_source_files(project_path)
 
+    # Patterns in test/example/fixture files are almost always intentional
+    # placeholders, not real secrets. Downgrade to LOW instead of suppressing
+    # so they're visible but don't pollute the decision.
+    _TEST_PATH_PARTS = {"test", "tests", "spec", "specs", "__tests__",
+                        "examples", "example", "fixtures", "fixture",
+                        "e2e", "mocks", "mock", "__mocks__", "stubs"}
+
+    def _is_test_file(path: Path) -> bool:
+        name = path.stem.lower()
+        parts_lower = {p.lower() for p in path.parts}
+        return (
+            any(p in parts_lower for p in _TEST_PATH_PARTS) or
+            name.endswith((".test", ".spec", "_test", "_spec")) or
+            name.startswith("test_")
+        )
+
     for fpath in source_files:
+        is_test = _is_test_file(fpath)
         try:
             content = fpath.read_text(encoding="utf-8", errors="ignore")
         except Exception:
@@ -210,10 +227,12 @@ def run_secret_detection(project_path: Path) -> CheckResult:
             for rule_id, description, pattern, severity, remediation in SECRET_RULES:
                 if pattern.search(line):
                     rel = fpath.relative_to(project_path)
+                    # Downgrade severity in test/example files — not real secrets
+                    effective_severity = Severity.LOW if is_test else severity
                     findings.append(Finding(
                         title=rule_id.replace("-", " ").title(),
-                        severity=severity,
-                        description=description,
+                        severity=effective_severity,
+                        description=description + (" [test file — likely placeholder]" if is_test else ""),
                         location=f"{rel}:{lineno}",
                         remediation=remediation,
                     ))
@@ -617,14 +636,30 @@ def _parse_package_json(pkg_file: Path) -> List[Tuple]:
     for name, version_range in all_deps.items():
         if not isinstance(version_range, str):
             continue
-        # Strip range operators to get a concrete version for querying
-        clean = version_range.lstrip("^~>=<! ")
-        # Handle "latest", "*", URLs, git refs — skip these
+
+        raw = version_range.strip()
+
+        # Skip unresolvable specifiers: *, latest, git URLs, file:, github shorthands
+        skip_prefixes = ("git+", "git://", "github:", "file:", "http://", "https://")
+        if raw in ("*", "latest", "next", ""):
+            continue
+        if any(raw.startswith(p) for p in skip_prefixes):
+            continue
+        # github shorthand: "user/repo" — no dots in name part
+        if re.match(r'^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$', raw):
+            continue
+        # Custom registries or other non-semver
+        if not re.search(r'\d+\.\d+', raw):
+            continue
+
+        # Strip leading range operators to get a concrete version
+        # Handles: ^1.2.3  ~1.2.3  >=1.2.3  >1.2.3  <=1.2.3  1.2.3
+        # For complex ranges like ">=1.0.0 <2.0.0" take the lower bound
+        clean = re.sub(r'^[^0-9]+', '', raw.split(" ")[0].split(",")[0])
         if not re.match(r'^\d+\.\d+', clean):
             continue
-        # Only take the first version from complex ranges like ">=1.0.0 <2.0.0"
-        version = clean.split(" ")[0].split(",")[0].strip()
-        packages.append((name, version, "npm"))
+
+        packages.append((name, clean, "npm"))
 
     return packages
 
