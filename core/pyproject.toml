@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cato-core"
+version = "0.1.0"
+description = "CATO analysis engine — scanner, decision engine, certificate"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.10.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.2", "pytest-cov==5.0.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cato_core*"]

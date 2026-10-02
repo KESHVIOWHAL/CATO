@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cato-cli"
+version = "0.1.0"
+description = "CATO CLI — cato analyze ."
+requires-python = ">=3.10"
+dependencies = [
+    "cato-core>=0.1.0",
+    "click==8.1.8",
+    "rich==13.9.4",
+]
+
+[project.scripts]
+cato = "cato_cli.main:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cato_cli*"]
