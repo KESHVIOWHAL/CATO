@@ -19,3 +19,6 @@ dist/
 # Misc
 .DS_Store
 *.log
+
+# Real-world test clones (local only, not committed)
+core/tests/_real_repos/
